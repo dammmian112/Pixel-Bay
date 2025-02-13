@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://bk2jhwp1dlgxn"]
+
+[ext_resource type="Script" path="res://scripts/space_invaders.gd" id="1_3cnvu"]
+[ext_resource type="PackedScene" uid="uid://dls7w2murft1r" path="res://scenes/playerr.tscn" id="2_hes6h"]
+[ext_resource type="PackedScene" uid="uid://b6pb1q3c5ysm6" path="res://scenes/laser.tscn" id="3_nf6i8"]
+[ext_resource type="Texture2D" uid="uid://conmdxw5cnjjg" path="res://assets/spirites/spaceInvaders/tło szersze.png" id="4_diwc3"]
+[ext_resource type="PackedScene" uid="uid://dggkydolo6bor" path="res://scenes/enemyy.tscn" id="4_nsojm"]
+[ext_resource type="PackedScene" uid="uid://comx5t3ad7qbr" path="res://scenes/diver_enemy1.tscn" id="4_vfhn8"]
+[ext_resource type="PackedScene" uid="uid://dt066i4usyri8" path="res://scenes/hudd.tscn" id="4_xgy2b"]
+[ext_resource type="PackedScene" uid="uid://bc2sl7galvrv6" path="res://scenes/diver_enemy2.tscn" id="5_cx67e"]
+[ext_resource type="PackedScene" uid="uid://jmoc6g0ubbg8" path="res://scenes/diver_enemy.tscn" id="5_gpbp2"]
+[ext_resource type="PackedScene" uid="uid://5xa0v3xkknxp" path="res://scenes/diver_enemy3.tscn" id="6_tdim3"]
+[ext_resource type="PackedScene" uid="uid://ckjp1o7e2pun4" path="res://scenes/pause_menu_space_invaders.tscn" id="7_73hwc"]
+[ext_resource type="AudioStream" uid="uid://but2q6xgfx8sv" path="res://assets/spirites/sounds/spcinvgame.mp3" id="7_ea8n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28dmb"]
+size = Vector2(1366, 20)
+
+[node name="SpaceInvaders" type="Node2D"]
+script = ExtResource("1_3cnvu")
+enemy_scenes = Array[PackedScene]([ExtResource("4_nsojm"), ExtResource("5_gpbp2"), ExtResource("4_vfhn8"), ExtResource("5_cx67e"), ExtResource("6_tdim3")])
+initial_spawn_interval = 5.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -587.0
+offset_top = -227.0
+offset_right = 2025.0
+offset_bottom = 1022.0
+texture = ExtResource("4_diwc3")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UILayer" instance=ExtResource("4_xgy2b")]
+unique_name_in_owner = true
+
+[node name="Playerr" parent="." instance=ExtResource("2_hes6h")]
+position = Vector2(566, 590)
+scale = Vector2(2, 2)
+collision_mask = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Playerr"]
+stream = ExtResource("7_ea8n4")
+volume_db = -10.0
+autoplay = true
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="laser" parent="." instance=ExtResource("3_nf6i8")]
+position = Vector2(4501, -817)
+
+[node name="LaserContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_73hwc")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 326)
+zoom = Vector2(1.5, 1.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(604, 647)
+shape = SubResource("RectangleShape2D_28dmb")
+one_way_collision_margin = 0.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+rotation = 1.5708
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(430, -1158)
+shape = SubResource("RectangleShape2D_28dmb")
+one_way_collision_margin = 0.0
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://comx5t3ad7qbr"]
+
+[ext_resource type="PackedScene" uid="uid://dggkydolo6bor" path="res://scenes/enemyy.tscn" id="1_1kyw7"]
+[ext_resource type="Texture2D" uid="uid://dvopk0x7spk2g" path="res://assets/spirites/spaceInvaders/przeciwnicy spirtesheet.png" id="2_6rbti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6i4n"]
+atlas = ExtResource("2_6rbti")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl5mi"]
+atlas = ExtResource("2_6rbti")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qx01e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6i4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl5mi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="DiverEnemy" instance=ExtResource("1_1kyw7")]
+speed = 280
+hp = 1
+points = 200
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_qx01e")
+frame_progress = 0.912176
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(-1, -1)

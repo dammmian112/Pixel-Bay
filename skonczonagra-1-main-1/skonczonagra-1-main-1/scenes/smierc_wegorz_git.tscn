@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7uvbtu3far4j"]
+
+[ext_resource type="Script" path="res://scripts/wegorz_git.gd" id="1_wn0lt"]
+[ext_resource type="Texture2D" uid="uid://cpmbwrq7xb2r4" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 6.png" id="2_v6hq1"]
+[ext_resource type="Texture2D" uid="uid://dlrwjfj0x17yc" path="res://assets/spirites/menu, przyciski/menu, przyciski/restart.png" id="3_nw63v"]
+[ext_resource type="Texture2D" uid="uid://dgp61t7y7oo2a" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2-2.png" id="4_t2dhg"]
+[ext_resource type="Texture2D" uid="uid://bg1ek3jicmcov" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2-1.png" id="5_pgq6f"]
+
+[node name="smierc_wegorz_git" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wn0lt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v6hq1")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -50.0
+offset_right = 224.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Przegrales"
+
+[node name="restart" type="TextureButton" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_nw63v")
+
+[node name="menu" type="TextureButton" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_t2dhg")
+
+[node name="wyjscie" type="TextureButton" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_pgq6f")
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/wyjscie" to="." method="_on_wyjscie_pressed"]

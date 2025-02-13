@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://dggkydolo6bor"]
+
+[ext_resource type="Script" path="res://scripts/enemyy.gd" id="1_kpqsr"]
+[ext_resource type="Texture2D" uid="uid://dvopk0x7spk2g" path="res://assets/spirites/spaceInvaders/przeciwnicy spirtesheet.png" id="2_4uhqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8c1i"]
+atlas = ExtResource("2_4uhqp")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rklo1"]
+atlas = ExtResource("2_4uhqp")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d81m2"]
+atlas = ExtResource("2_4uhqp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7v1e"]
+atlas = ExtResource("2_4uhqp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gp1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8c1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rklo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d81m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7v1e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsfmi"]
+radius = 15.4632
+
+[node name="Enemyy" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_kpqsr")
+hp = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6gp1k")
+autoplay = "default"
+frame_progress = 0.696645
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dsfmi")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(2.55, 2.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,240 @@
+[gd_scene load_steps=21 format=3 uid="uid://unfnrh80b8fy"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ia7yf"]
+[ext_resource type="Texture2D" uid="uid://c0cyrft3jor73" path="res://assets/spirites/menu, przyciski/menu, przyciski/Nostakgic Jump.png" id="2_xytla"]
+[ext_resource type="Texture2D" uid="uid://1j7jqesv0676" path="res://assets/spirites/textures/pixil-frame-0.png" id="3_oon2b"]
+[ext_resource type="AudioStream" uid="uid://lyfaeh8x85gm" path="res://assets/spirites/sounds/menu.mp3" id="4_cy5fm"]
+[ext_resource type="Texture2D" uid="uid://bvd88g5ubek0m" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 5.png" id="4_e7fqr"]
+[ext_resource type="Texture2D" uid="uid://b1innki0qul4q" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 4.png" id="5_de0be"]
+[ext_resource type="Texture2D" uid="uid://bmqklfgknl47o" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 3.png" id="6_g26fc"]
+[ext_resource type="Texture2D" uid="uid://bmtvqgkordmo4" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 2.png" id="7_baggu"]
+[ext_resource type="Texture2D" uid="uid://dgp61t7y7oo2a" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2-2.png" id="8_mnjgo"]
+[ext_resource type="Texture2D" uid="uid://bg1ek3jicmcov" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2-1.png" id="9_4j04h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_esudm"]
+
+[sub_resource type="Theme" id="Theme_8n3y6"]
+Button/colors/font_color = Color(0.991599, 0.985343, 0.983316, 1)
+Button/colors/font_disabled_color = Color(0.633534, 0.95223, 0.850709, 0.5)
+Button/colors/font_hover_color = Color(0.757964, 0.0828307, 0.565346, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3ak4"]
+
+[sub_resource type="Theme" id="Theme_edwf5"]
+
+[sub_resource type="Animation" id="Animation_o2n7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-141, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.326377]
+}
+
+[sub_resource type="Animation" id="Animation_jlx8i"]
+resource_name = "new_animation"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.66667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-141, 261), Vector2(400, 370), Vector2(807, 250), Vector2(1413, 560)]
+}
+
+[sub_resource type="Animation" id="Animation_yfcvj"]
+resource_name = "new_animation_2"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 5.03333, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1005, -45), Vector2(945, 81), Vector2(1024, 284), Vector2(864, 500), Vector2(1005, 820)]
+}
+
+[sub_resource type="Animation" id="Animation_fy5nw"]
+resource_name = "new_animation_3"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-141, 261), Vector2(91, 147), Vector2(200, 29), Vector2(344, -92)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_4h2x8"]
+resource_name = "new_animation_4"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(740, 719), Vector2(924, 509), Vector2(1045, 404), Vector2(1262, 205)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pq3ei"]
+_data = {
+"RESET": SubResource("Animation_o2n7p"),
+"new_animation": SubResource("Animation_jlx8i"),
+"new_animation_2": SubResource("Animation_yfcvj"),
+"new_animation_3": SubResource("Animation_fy5nw"),
+"new_animation_4": SubResource("Animation_4h2x8")
+}
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_esudm")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8n3y6")
+script = ExtResource("1_ia7yf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -92.0
+offset_right = 160.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+texture = ExtResource("2_xytla")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m3ak4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -305.0
+offset_right = 348.0
+offset_bottom = 921.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_edwf5")
+
+[node name="wiosn" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_e7fqr")
+stretch_mode = 0
+
+[node name="lato" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_de0be")
+
+[node name="jesien" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_g26fc")
+
+[node name="zima" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_baggu")
+
+[node name="menu" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_mnjgo")
+
+[node name="exit" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 8
+texture_normal = ExtResource("9_4j04h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-141, 261)
+rotation = 0.326377
+texture = ExtResource("3_oon2b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_pq3ei")
+}
+autoplay = "new_animation_3"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cy5fm")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/wiosn" to="." method="_on_wiosn_pressed"]
+[connection signal="pressed" from="VBoxContainer/lato" to="." method="_on_lato_pressed"]
+[connection signal="pressed" from="VBoxContainer/jesien" to="." method="_on_jesien_pressed"]
+[connection signal="pressed" from="VBoxContainer/zima" to="." method="_on_zima_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

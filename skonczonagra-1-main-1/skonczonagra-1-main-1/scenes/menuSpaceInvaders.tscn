@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://ba76pe25l2s0u"]
+
+[ext_resource type="Script" path="res://scripts/menu_space_invaders.gd" id="1_6m4ff"]
+[ext_resource type="Texture2D" uid="uid://dtj2ly708hjqm" path="res://assets/spirites/menu, przyciski/menu, przyciski/Nostakgic Jump copy.png" id="2_y4foo"]
+[ext_resource type="AudioStream" uid="uid://buqfwc3m4wf2r" path="res://assets/spirites/sounds/menujakies.mp3" id="3_2oxsa"]
+[ext_resource type="Texture2D" uid="uid://bcl7kei52ijd" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2.png" id="3_nvs28"]
+[ext_resource type="Texture2D" uid="uid://dgp61t7y7oo2a" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2-2.png" id="4_jwy2r"]
+[ext_resource type="Texture2D" uid="uid://bg1ek3jicmcov" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 7 copy 2-1.png" id="5_7vpbp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_esudm"]
+
+[sub_resource type="Theme" id="Theme_8n3y6"]
+Button/colors/font_color = Color(0.991599, 0.985343, 0.983316, 1)
+Button/colors/font_disabled_color = Color(0.633534, 0.95223, 0.850709, 0.5)
+Button/colors/font_hover_color = Color(0.757964, 0.0828307, 0.565346, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3ak4"]
+
+[sub_resource type="Theme" id="Theme_edwf5"]
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_esudm")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8n3y6")
+script = ExtResource("1_6m4ff")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -92.0
+offset_right = 160.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+texture = ExtResource("2_y4foo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m3ak4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -113.0
+offset_right = 117.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_edwf5")
+
+[node name="graj" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_nvs28")
+
+[node name="menu" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_jwy2r")
+
+[node name="exxit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_7vpbp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2oxsa")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/graj" to="." method="_on_graj_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/exxit" to="." method="_on_exxit_pressed"]

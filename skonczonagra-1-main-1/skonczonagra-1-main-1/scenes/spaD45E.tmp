@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk2jhwp1dlgxn"]
+
+[ext_resource type="Script" path="res://scripts/space_invaders.gd" id="1_3cnvu"]
+[ext_resource type="PackedScene" uid="uid://dls7w2murft1r" path="res://scenes/playerr.tscn" id="2_hes6h"]
+[ext_resource type="PackedScene" uid="uid://b6pb1q3c5ysm6" path="res://scenes/laser.tscn" id="3_nf6i8"]
+[ext_resource type="PackedScene" uid="uid://dggkydolo6bor" path="res://scenes/enemyy.tscn" id="4_nsojm"]
+
+[node name="SpaceInvaders" type="Node2D"]
+script = ExtResource("1_3cnvu")
+
+[node name="Playerr" parent="." instance=ExtResource("2_hes6h")]
+position = Vector2(495, 521)
+scale = Vector2(2, 2)
+
+[node name="laser" parent="." instance=ExtResource("3_nf6i8")]
+position = Vector2(522, 452)
+
+[node name="LaserContainer" type="Node2D" parent="."]
+
+[node name="Enemyy" parent="." instance=ExtResource("4_nsojm")]
+position = Vector2(431, 61)

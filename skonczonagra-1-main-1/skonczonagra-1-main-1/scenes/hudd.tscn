@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt066i4usyri8"]
+
+[ext_resource type="Script" path="res://scripts/hudd.gd" id="1_rhgs2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nj05k"]
+font_size = 36
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rhgs2")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "SCORE: 9999"
+label_settings = SubResource("LabelSettings_nj05k")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

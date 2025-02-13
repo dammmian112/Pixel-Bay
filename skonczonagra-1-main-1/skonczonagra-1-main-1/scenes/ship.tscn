@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbtbect0o35e4"]
+
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_vv5dn"]
+[ext_resource type="Texture2D" uid="uid://cp8ay6gx5pso1" path="res://assets/spirites/spaceInvaders/statek spriteskeet.png" id="2_di4i7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4mye"]
+atlas = ExtResource("2_di4i7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6coqb"]
+atlas = ExtResource("2_di4i7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2en1"]
+atlas = ExtResource("2_di4i7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4weo"]
+atlas = ExtResource("2_di4i7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqv4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4mye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6coqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2en1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4weo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmw5s"]
+radius = 14.0
+height = 28.0
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_vv5dn")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(0.5, -2.5)
+sprite_frames = SubResource("SpriteFrames_sqv4i")
+autoplay = "default"
+frame = 3
+frame_progress = 0.133377
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -3.5)
+shape = SubResource("CapsuleShape2D_bmw5s")

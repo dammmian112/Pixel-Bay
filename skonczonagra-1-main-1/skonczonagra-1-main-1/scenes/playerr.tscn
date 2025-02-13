@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dls7w2murft1r"]
+
+[ext_resource type="Texture2D" uid="uid://cp8ay6gx5pso1" path="res://assets/spirites/spaceInvaders/statek spriteskeet.png" id="1_f0uso"]
+[ext_resource type="Script" path="res://scripts/playerr.gd" id="1_xadwo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g7xu"]
+atlas = ExtResource("1_f0uso")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kytnn"]
+atlas = ExtResource("1_f0uso")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny0ip"]
+atlas = ExtResource("1_f0uso")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2bgv"]
+atlas = ExtResource("1_f0uso")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fx66i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g7xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kytnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny0ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2bgv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Playerr" type="CharacterBody2D" groups=["playerr"]]
+motion_mode = 1
+script = ExtResource("1_xadwo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -15, -4, -12, -4, -7, -16, 5, -16, 10, 16, 10, 16, 5, 4, -7, 4, -12, 1, -16, -1, -16)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(13, -17)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fx66i")
+autoplay = "default"
+frame_progress = 0.506197

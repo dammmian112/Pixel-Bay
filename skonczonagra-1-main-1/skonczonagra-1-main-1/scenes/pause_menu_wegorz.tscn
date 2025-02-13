@@ -1,0 +1,134 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpqvtxhvv3h06"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu_wegorz.gd" id="1_87ovq"]
+[ext_resource type="Texture2D" uid="uid://cpmbwrq7xb2r4" path="res://assets/spirites/menu, przyciski/menu, przyciski/Layer 6.png" id="2_heejt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sc2h"]
+bg_color = Color(0.264958, 0.317134, 0.128809, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhosc"]
+bg_color = Color(0.156863, 0.541176, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4gau"]
+bg_color = Color(0.333333, 0.619608, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxvqe"]
+bg_color = Color(0.273441, 0.515052, 0.0856881, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sifgi"]
+bg_color = Color(0.156863, 0.541176, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5rfe"]
+bg_color = Color(0.333333, 0.619608, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n415b"]
+bg_color = Color(0.27451, 0.513726, 0.0862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1iew"]
+bg_color = Color(0.156863, 0.541176, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmo11"]
+bg_color = Color(0.333333, 0.619608, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlyj3"]
+bg_color = Color(0.27451, 0.513726, 0.0862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hn2dw"]
+bg_color = Color(0.156863, 0.541176, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2lpq"]
+bg_color = Color(0.333481, 0.618217, 0.106523, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bfty"]
+bg_color = Color(0.27451, 0.513726, 0.0862745, 1)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -13.0
+offset_right = 3.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87ovq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -92.0
+offset_right = 160.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_heejt")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -153.0
+offset_right = 178.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6sc2h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="grajDalej" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhosc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e4gau")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pxvqe")
+text = "Graj dalej"
+
+[node name="restart" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_sifgi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k5rfe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n415b")
+text = "Restart"
+
+[node name="powrotDoMenu" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_k1iew")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rmo11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jlyj3")
+text = "Menu"
+
+[node name="wyjdz" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_hn2dw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d2lpq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2bfty")
+text = "Wyjscie"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/grajDalej" to="." method="_on_graj_dalej_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/powrotDoMenu" to="." method="_on_powrot_do_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/wyjdz" to="." method="_on_wyjdz_pressed"]
